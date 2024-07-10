@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>你好,花枝</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        @font-face {
+            font-family: "LXGWHS";
+            src: url("fonts/LXGWHeartSerif.ttf") format('truetype');
+        }
+        @font-face {
+            font-family: "LXGWZS";
+            src: url("fonts/LXGWZhiSongMN.ttf") format('truetype');
+        }
+        @font-face {
+            font-family: "SHSSC";
+            src: url("fonts/SourceHanSerifSC-Heavy.otf");
+        }
+        :root{
+            --border-width: 2px;
+            --border-color: #e5e5e5;
+        }
+        text {
+            font-family: SHSSC,serif;
+            color: #505050;
+            font-size: 32px;
+            border-style: solid;
+            border-color: var(--border-color);
+            border-width: 0;
+            border-bottom-width: var(--border-width);
+            border-left-width: var(--border-width);
+            line-height: 32px;
+            width: calc(32px + 24px);
+            height: calc(32px + 24px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            pointer-events: none;
+        }
+        text:after {
+            position: absolute;
+            left: calc(50% - (var(--border-width) / 2));
+            top: 0;
+            content: '';
+            width: 0;
+            height: 100%;
+            border-left: var(--border-width) dashed var(--border-color);
+            z-index: -1;
+        }
+        text:before {
+            position: absolute;
+            top: calc(50% - (var(--border-width) / 2));
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 0;
+            border-top: var(--border-width) dashed var(--border-color);
+            z-index: -1;
+        }
+        text:last-child {
+            border-right-width: var(--border-width);
+        }
+        div:first-of-type text {
+            border-top-width: var(--border-width);
+        }
+    </style>
+</head>
+<body>
+</body>
+<script>
+    const textArr = ['落霞与孤鹜齐飞','秋水共长天一色']
+    // ,'渔舟唱晚','响穷彭蠡之滨','雁阵惊寒','声断衡阳之浦'
+    textArr.forEach(item => {
+        // 创建 div
+        const texts = item.split('')
+        const div = document.createElement('div')
+
+        texts.forEach(t=>{
+            //创建 text
+            const text = document.createElement('text')
+            text.innerText = t
+            div.appendChild(text)
+        })
+        document.getElementsByTagName('body')[0].appendChild(div)
+    })
+</script>
+</html>
