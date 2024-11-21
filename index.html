@@ -80,12 +80,13 @@
         text:last-child {
             border-right-width: var(--border-width);
         }
-        div:first-of-type text {
+        div.text:first-of-type text {
             border-top-width: var(--border-width);
         }
     </style>
 </head>
 <body>
+    <p class="copyright"><a>Copyright © 2021 Lula Co.,Ltd. All Rights Reserved.</a><a href="https://beian.miit.gov.cn">花枝科技 版权所有 ｜ 蜀ICP备2024109963号-1</a></p>
 </body>
 <script>
     const textArr = ['落霞与孤鹜齐飞','秋水共长天一色']
@@ -94,6 +95,7 @@
         // 创建 div
         const texts = item.split('')
         const div = document.createElement('div')
+        div.setAttribute("class", "text")
 
         texts.forEach(t=>{
             //创建 text
@@ -104,4 +106,21 @@
         document.getElementsByTagName('body')[0].appendChild(div)
     })
 </script>
+<style>
+    .copyright{
+        position: fixed;
+        bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        text-align: center;
+    }
+    .copyright a {
+        color: #CCCCCC;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+        font-size: 14px;
+        line-height: 20px;
+        text-decoration: none;
+    }
+</style>
 </html>
